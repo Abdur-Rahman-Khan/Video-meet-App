@@ -16,12 +16,26 @@
 </head>
 <body>
     <h1>Meet Me!</h1>
+    <p>Room ID: <%= roomId%></p>
     <!-- <button></button> -->
-    <div class="container">
-        <div id="video-grid">
+    <!-- <div class=""> -->
+        <div class="container">
+            <div class="controls">
+                
+                <button class="btncontol audiob">Toggle Audio</button>
+                <button class="btncontol videob">Toggle Video</button>
+                <form action="/" method="post">
+                    <button class="btncontol endcall" type="submit">End Call</button>
+                </form>
+                
+            </div>
+            <div id="video-grid">
 
+            </div>
+           
         </div>
-    </div>
+       
+    <!-- </div> -->
     
 </body>
 </html>

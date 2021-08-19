@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Me!</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .formHome, .create, .join{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 5px;
+        }
+        input{
+            height: 30px;
+            width: 200px;
+            outline: none;
+        }
+        .gap{
+            height: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to<b> Meet Me!</b></h1>
+    <div class="create">
+        <h3>Host a meet?
+        </h3>
+        <form action="/rand-room" method="post">
+            <button class="submit" type="submit">Create Room</button>
+        </form>
+    </div>
+    <div class="gap"></div>
+    <h3>OR</h3>
+    <div class="gap"></div>
+    <div class="join">
+        <h3>
+            Join a meet?
+        </h3>
+        <form class="formHome" action="/room" method="post">
+            <input type="text" name="RoomID" id="RoomID" placeholder="Enter Room Id">
+            <br>
+            <button class="join-room" type="submit">Join Room</button>
+        </form>
+        
+    </div>
+    <script src="scriptHome.js"></script>
+</body>
+</html>

@@ -1,20 +1,25 @@
-
+const endcall=document.getElementsByClassName('endcall');
+const audiob=document.querySelector('.audiob');
+const videob=document.querySelector('.videob');
 const videoGrid=document.getElementById('video-grid');
 const myVid=document.createElement('video');
-myVid.muted=true;
-const socket = io('/');
+let localstream
 let users={}
 const myPeerId=new Peer(undefined,{
     host: '/',
     port: '3001'
 })
+// new Peer()
+
+myVid.muted=true;
+const socket = io('/');
 
 navigator.mediaDevices.getUserMedia({
     video:true,
     audio: true
 }).then(stream=>{
     addVideoStream(myVid,stream);
-    
+    localstream=stream
     myPeerId.on('call',call=>{
         call.answer(stream);
         const video=document.createElement('video');
@@ -39,6 +44,19 @@ myPeerId.on('open',id=>{
 // socket.on('user-connected',userid=>{
 //     console.log(userid);
 // });
+let isAudio=true;
+let isVideo=true;
+
+audiob.addEventListener('click',()=>{
+    isAudio=!isAudio;
+    localstream.getAudioTracks()[0].enabled=isAudio;
+});
+
+videob.addEventListener('click',()=>{
+    isVideo=!isVideo;
+    localstream.getVideoTracks()[0].enabled=isVideo;
+});
+
 
 /****Function-Utility **************/
 
